@@ -18,6 +18,9 @@ namespace personal_manager
         private int selectedId = -1;
         private Chart chartStatus;
 
+        // 追蹤目前資料是否有被修改過
+        private bool _isDirty = false;
+
         // 避免初始化 ComboBox 時觸發篩選事件
         private bool isInitializingFilter = false;
 
@@ -110,7 +113,6 @@ namespace personal_manager
             pnlList.Controls.Add(chartStatus);
             chartStatus.BringToFront();
         }
-
 
         private void UpdatePieChart()
         {
@@ -420,6 +422,8 @@ namespace personal_manager
             todoList.Add(item);
             nextId++;
 
+            _isDirty = true; // 標記資料已變更
+
             RefreshClassFilterOptions();
             UpdateAllDisplay();
             InitDefaultValue();
@@ -447,6 +451,8 @@ namespace personal_manager
 
             TodoItem item = todoList.FirstOrDefault(x => x.Id == selectedId);
             if (item != null) todoList.Remove(item);
+
+            _isDirty = true; // 標記資料已變更
 
             RefreshClassFilterOptions();
             UpdateAllDisplay();
@@ -478,6 +484,8 @@ namespace personal_manager
             item.Status = GetSelectedStatus();
             item.Category = combotype.Text;
             item.DueDate = month.SelectionStart.Date;
+
+            _isDirty = true; // 標記資料已變更
 
             RefreshClassFilterOptions();
             UpdateAllDisplay();
@@ -783,6 +791,8 @@ namespace personal_manager
 
             nextId = todoList.Count > 0 ? todoList.Max(x => x.Id) + 1 : 1;
 
+            _isDirty = false; // 載入後重設，尚未有任何修改
+
             RefreshClassFilterOptions();
             UpdateAllDisplay();
             InitDefaultValue();
@@ -886,6 +896,7 @@ namespace personal_manager
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 SaveTodoListToCsv(saveFileDialog.FileName);
+                _isDirty = false; // 儲存後重設變更旗標
                 MessageBox.Show("CSV 儲存成功！");
             }
         }
@@ -978,6 +989,7 @@ namespace personal_manager
 上方 File 選單可使用：
 1. Load：載入 CSV 待辦資料。
 2. Save：將目前待辦資料儲存成 CSV 檔案。
+3. 清除並新建：清除目前所有資料，回到初始空白狀態。
 
 八、提醒狀態說明
 
@@ -1008,6 +1020,44 @@ namespace personal_manager
             manualForm.Controls.Add(closeButton);
 
             manualForm.ShowDialog(this);
+        }
+
+        // 清除並新建
+        private void outnowfile_Click(object sender, EventArgs e)
+        {
+            // 根據是否有未儲存的變更，決定提示訊息與圖示
+            string msg = _isDirty
+                ? "目前資料有未儲存的變更，確定要清除所有資料並重新開始嗎？\n（未儲存的內容將會遺失）"
+                : "即將清除所有資料並回到初始空白狀態，確定嗎？";
+
+            string title = _isDirty ? "⚠ 尚未儲存" : "確認清除";
+
+            MessageBoxIcon icon = _isDirty
+                ? MessageBoxIcon.Warning
+                : MessageBoxIcon.Question;
+
+            DialogResult result = MessageBox.Show(msg, title, MessageBoxButtons.YesNo, icon);
+
+            if (result != DialogResult.Yes) return;
+
+            // 清除所有資料
+            todoList.Clear();
+            nextId = 1;
+            selectedId = -1;
+
+            // 重設篩選分類選項
+            RefreshClassFilterOptions();
+
+            // 重設所有欄位
+            InitDefaultValue();
+
+            // 刷新畫面（表格、統計、圓餅圖）
+            UpdateAllDisplay();
+
+            // 重設變更旗標
+            _isDirty = false;
+
+            MessageBox.Show("已清除所有資料，回到初始狀態。", "清除完成", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 
