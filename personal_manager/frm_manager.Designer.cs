@@ -20,12 +20,13 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.lbltitle = new System.Windows.Forms.Label();
             this.pnlInput = new System.Windows.Forms.Panel();
+            this.outnowfile = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
@@ -75,7 +76,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dgvTodos = new System.Windows.Forms.DataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.outnowfile = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlInput.SuspendLayout();
             this.pnlList.SuspendLayout();
@@ -102,7 +102,7 @@
             this.lbltitle.Name = "lbltitle";
             this.lbltitle.Size = new System.Drawing.Size(468, 48);
             this.lbltitle.TabIndex = 0;
-            this.lbltitle.Text = "📋  個人代辦事項管理系統";
+            this.lbltitle.Text = "📋  個人待辦事項管理系統";
             // 
             // pnlInput
             // 
@@ -129,6 +129,24 @@
             this.pnlInput.Padding = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.pnlInput.Size = new System.Drawing.Size(300, 754);
             this.pnlInput.TabIndex = 2;
+            // 
+            // outnowfile
+            // 
+            this.outnowfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(238)))));
+            this.outnowfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.outnowfile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(180)))), ((int)(((byte)(120)))));
+            this.outnowfile.FlatAppearance.BorderSize = 2;
+            this.outnowfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(250)))), ((int)(((byte)(225)))));
+            this.outnowfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.outnowfile.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.outnowfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(80)))));
+            this.outnowfile.Location = new System.Drawing.Point(22, 605);
+            this.outnowfile.Name = "outnowfile";
+            this.outnowfile.Size = new System.Drawing.Size(246, 50);
+            this.outnowfile.TabIndex = 43;
+            this.outnowfile.Text = "跳出目前檔案";
+            this.outnowfile.UseVisualStyleBackColor = false;
+            this.outnowfile.Click += new System.EventHandler(this.outnowfile_Click);
             // 
             // label4
             // 
@@ -740,27 +758,27 @@
             // 
             // dgvTodos
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dgvTodos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dgvTodos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTodos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(170)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("微軟正黑體", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(180)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTodos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(68)))), ((int)(((byte)(170)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微軟正黑體", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(180)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTodos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTodos.ColumnHeadersHeight = 40;
             this.dgvTodos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("微軟正黑體", 10.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTodos.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微軟正黑體", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTodos.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTodos.EnableHeadersVisualStyles = false;
             this.dgvTodos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(218)))), ((int)(((byte)(240)))));
             this.dgvTodos.Location = new System.Drawing.Point(299, 625);
@@ -770,24 +788,6 @@
             this.dgvTodos.RowTemplate.Height = 38;
             this.dgvTodos.Size = new System.Drawing.Size(885, 225);
             this.dgvTodos.TabIndex = 24;
-            // 
-            // outnowfile
-            // 
-            this.outnowfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(255)))), ((int)(((byte)(238)))));
-            this.outnowfile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.outnowfile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(180)))), ((int)(((byte)(120)))));
-            this.outnowfile.FlatAppearance.BorderSize = 2;
-            this.outnowfile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(250)))), ((int)(((byte)(225)))));
-            this.outnowfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.outnowfile.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.outnowfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(160)))), ((int)(((byte)(80)))));
-            this.outnowfile.Location = new System.Drawing.Point(22, 605);
-            this.outnowfile.Name = "outnowfile";
-            this.outnowfile.Size = new System.Drawing.Size(246, 50);
-            this.outnowfile.TabIndex = 43;
-            this.outnowfile.Text = "跳出目前檔案";
-            this.outnowfile.UseVisualStyleBackColor = false;
-            this.outnowfile.Click += new System.EventHandler(this.outnowfile_Click);
             // 
             // frm_manager
             // 
@@ -820,7 +820,7 @@
             this.MaximizeBox = false;
             this.Name = "frm_manager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "個人代辦事項管理系統";
+            this.Text = "個人待辦事項管理系統";
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlInput.ResumeLayout(false);
